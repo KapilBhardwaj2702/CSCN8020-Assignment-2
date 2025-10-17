@@ -41,3 +41,68 @@ The implementation follows the assignment requirements:
 
 ```bash
 pip install "gymnasium[classic_control,toy_text]" matplotlib pandas numpy
+```
+
+2. **Run the notebook**
+
+* Open `CSCN8020_Assignment2_solution.ipynb` in Jupyter Notebook or JupyterLab  
+* Run all cells in order (top to bottom)  
+* Results, plots, and metrics will be generated automatically  
+
+3. **Output files**
+
+* CSV summaries and metrics will be saved in:
+
+```
+/assignment2_results/
+```
+
+* These are useful for validating performance or regenerating plots
+
+4. **Export PDF**  
+
+If not already provided, generate the PDF version by running:
+
+```bash
+!jupyter nbconvert --to pdf CSCN8020_Assignment2_solution.ipynb
+```
+
+---
+
+## Key Features
+
+* **Q-Learning Agent Class:** Implements table-based learning with ε-greedy exploration  
+* **Training Function:** Handles multiple episodes, collects metrics, and logs progress  
+* **Experiments:** Automatically tests multiple α and ε values  
+* **Visualization:** Plots learning curves and performance comparisons  
+* **Utils Integration:** Automatically detects and imports `assignment2_utils.py` if present  
+
+---
+
+## Results Summary
+
+The best hyperparameters found during testing were:
+
+| Parameter            | Value |
+| -------------------- | ----- |
+| Learning Rate (α)    | 0.1   |
+| Exploration Rate (ε) | 0.1   |
+| Discount Factor (γ)  | 0.9   |
+
+This configuration achieved the **highest average reward** and most stable learning performance.
+
+---
+
+## Demonstration
+
+At the end of the notebook, a short demo shows the **Taxi moving** in the grid using the learned Q-table.  
+This demonstrates how the agent picks up and drops off passengers after training, making the learning process visible step by step.
+
+---
+
+## Conclusion
+
+This project demonstrates how Q-Learning can learn optimal behavior through repeated interactions with the environment.  
+By tuning α and ε, the agent improved its efficiency and convergence.  
+The notebook and PDF together fulfill all requirements outlined in **Assignment #2**.
+
