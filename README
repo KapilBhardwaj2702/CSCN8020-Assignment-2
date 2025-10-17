@@ -6,7 +6,6 @@
 **Student ID:** 8963474
 **Date:** October 2025
 
----
 
 ###  **Overview**
 
@@ -34,7 +33,6 @@ The implementation follows the assignment requirements:
 | `final_metrics.csv`                   | Per-episode performance metrics for the best hyperparameters (auto-generated).            |
 | `README.md`                           | This file — describes setup, files, and instructions.                                     |
 
----
 
 ###  **Setup Instructions**
 
@@ -66,7 +64,6 @@ The implementation follows the assignment requirements:
    !jupyter nbconvert --to pdf CSCN8020_Assignment2_solution.ipynb
    ```
 
----
 
 ###  **Key Features**
 
@@ -76,7 +73,6 @@ The implementation follows the assignment requirements:
 * **Visualization:** Plots learning curves and performance comparisons.
 * **Utils Integration:** Automatically detects and imports `assignment2_utils.py` if present.
 
----
 
 ###  **Results Summary**
 
