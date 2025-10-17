@@ -1,122 +1,99 @@
+##  **README – CSCN8020 Assignment 2**
 
-##  **1️⃣ Create a `requirements.txt` file**
-
-This file lists all Python packages your notebook needs so the grader can easily install them.
-
-###  Recommended content for your assignment:
-
-```txt
-# CSCN8020 - Assignment 2
-# Q-Learning on Taxi-v3
-
-gymnasium[classic_control,toy_text]==0.29.1
-matplotlib>=3.7.0
-numpy>=1.23.0
-pandas>=2.0.0
-jupyter>=1.0.0
-```
-
-###  Why these packages
-
-| Package                               | Purpose                               |
-| ------------------------------------- | ------------------------------------- |
-| `gymnasium[classic_control,toy_text]` | Provides Taxi-v3 environment          |
-| `matplotlib`                          | For plotting learning curves          |
-| `numpy`                               | For numerical computation and Q-table |
-| `pandas`                              | For summaries and data storage        |
-| `jupyter`                             | To run the notebook                   |
-
-###  How to create it
-
-In your project folder (same one as your notebook), do one of the following:
-
-**Option 1 — Using terminal/PowerShell**
-
-```bash
-echo gymnasium[classic_control,toy_text]==0.29.1 > requirements.txt
-echo matplotlib>=3.7.0 >> requirements.txt
-echo numpy>=1.23.0 >> requirements.txt
-echo pandas>=2.0.0 >> requirements.txt
-echo jupyter>=1.0.0 >> requirements.txt
-```
-
-**Option 2 — Using any text editor**
-
-* Open a new file in VS Code / Notepad.
-* Paste the above lines.
-* Save as `requirements.txt`.
-
-**Option 3 — Generate automatically (optional)**
-If you already installed everything in your virtual environment:
-
-```bash
-pip freeze > requirements.txt
-```
-
-*(But this will include every installed package — it’s better to keep it minimal.)*
+**Course:** CSCN8020 – Reinforcement Learning
+**Assignment:** #2 – Q-Learning Control
+**Student Name:** Kapil Bhardwaj
+**Student ID:** 8963474
+**Date:** October 2025
 
 ---
 
-##  **2️⃣ Create a `.gitignore` file**
+###  **Overview**
 
-This tells Git which files/folders to ignore so you don’t accidentally upload large or generated files (like CSVs or notebooks checkpoints).
+This assignment implements and analyzes the **Q-Learning algorithm** using the **Taxi-v3** environment from Gymnasium.
+The goal was to understand how the learning rate (α) and exploration rate (ε) affect the agent’s ability to learn an optimal policy.
 
-###  Recommended `.gitignore` for this assignment:
+The implementation follows the assignment requirements:
 
-```gitignore
-# Python cache and virtual environment
-__pycache__/
-*.pyc
-*.pyo
-.venv/
-env/
-
-# Jupyter checkpoints
-.ipynb_checkpoints/
-
-# Results and temporary files
-assignment2_results/
-summary_df.csv
-final_metrics.csv
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# PDF exports and backups
-*.pdf
-*.bak
-
-# VSCode / IDE folders
-.vscode/
-.idea/
-```
-
-###  How to create it
-
-In your project folder, create a new text file named:
-
-```
-.gitignore
-```
-
-and paste the content above.
+* Baseline run with α=0.1, ε=0.1, γ=0.9
+* Experiments varying α ∈ [0.01, 0.001, 0.2]
+* Experiments varying ε ∈ [0.2, 0.3]
+* Reported metrics: total episodes, average return, and average steps per episode.
+* Learning curves and summary tables are plotted automatically.
 
 ---
 
-##  Final Folder Structure
+###  **Files Included**
 
-Your final submission folder should look like this:
+| File                                  | Description                                                                               |
+| ------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `CSCN8020_Assignment2_solution.ipynb` | Main Jupyter notebook with implementation, experiments, plots, and discussion.            |
+| `CSCN8020_Assignment2_solution.pdf`   | Exported PDF version of the notebook (submission copy).                                   |
+| `assignment2_utils.py`                | Helper functions provided with the assignment. Imported implicitly by the notebook.       |
+| `summary_df.csv`                      | Table summarizing average return and episode length for each experiment (auto-generated). |
+| `final_metrics.csv`                   | Per-episode performance metrics for the best hyperparameters (auto-generated).            |
+| `README.md`                           | This file — describes setup, files, and instructions.                                     |
 
-```
-CSCN8020_Assignment2/
-│
-├── CSCN8020_Assignment2_solution.ipynb
-├── CSCN8020_Assignment2_solution.pdf
-├── assignment2_utils.py
-├── requirements.txt
-├── .gitignore
-├── README.md
-└── assignment2_results/
-    ├── summary_df.csv
-    └── final_metrics.csv
+---
+
+###  **Setup Instructions**
+
+1. **Install dependencies**
+
+   ```bash
+   pip install "gymnasium[classic_control,toy_text]" matplotlib pandas numpy
+   ```
+
+2. **Run the notebook**
+
+   * Open `CSCN8020_Assignment2_solution.ipynb` in Jupyter Notebook or JupyterLab.
+   * Run all cells in order (top to bottom).
+   * Results, plots, and metrics will be generated automatically.
+
+3. **Output files**
+
+   * CSV summaries and metrics will be saved in:
+
+     ```
+     /assignment2_results/
+     ```
+   * These are useful for validating performance or regenerating plots.
+
+4. **Export PDF**
+   If not already provided, generate the PDF version by running:
+
+   ```bash
+   !jupyter nbconvert --to pdf CSCN8020_Assignment2_solution.ipynb
+   ```
+
+---
+
+###  **Key Features**
+
+* **Q-Learning Agent Class:** Implements table-based learning with ε-greedy exploration.
+* **Training Function:** Handles multiple episodes, collects metrics, and logs progress.
+* **Experiments:** Automatically tests multiple α and ε values.
+* **Visualization:** Plots learning curves and performance comparisons.
+* **Utils Integration:** Automatically detects and imports `assignment2_utils.py` if present.
+
+---
+
+###  **Results Summary**
+
+The best hyperparameters found during testing were:
+
+| Parameter            | Value |
+| -------------------- | ----- |
+| Learning Rate (α)    | 0.1   |
+| Exploration Rate (ε) | 0.1   |
+| Discount Factor (γ)  | 0.9   |
+
+This configuration achieved the highest average reward and most stable learning performance.
+
+---
+
+###  **Conclusion**
+
+This project demonstrates how Q-Learning can learn optimal behavior through repeated interactions with the environment.
+By tuning α and ε, the agent improved its efficiency and convergence.
+The notebook and PDF together fulfill all requirements outlined in **Assignment #2**.
