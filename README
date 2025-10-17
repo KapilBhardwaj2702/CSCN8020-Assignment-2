@@ -1,0 +1,122 @@
+
+##  **1️⃣ Create a `requirements.txt` file**
+
+This file lists all Python packages your notebook needs so the grader can easily install them.
+
+###  Recommended content for your assignment:
+
+```txt
+# CSCN8020 - Assignment 2
+# Q-Learning on Taxi-v3
+
+gymnasium[classic_control,toy_text]==0.29.1
+matplotlib>=3.7.0
+numpy>=1.23.0
+pandas>=2.0.0
+jupyter>=1.0.0
+```
+
+###  Why these packages
+
+| Package                               | Purpose                               |
+| ------------------------------------- | ------------------------------------- |
+| `gymnasium[classic_control,toy_text]` | Provides Taxi-v3 environment          |
+| `matplotlib`                          | For plotting learning curves          |
+| `numpy`                               | For numerical computation and Q-table |
+| `pandas`                              | For summaries and data storage        |
+| `jupyter`                             | To run the notebook                   |
+
+###  How to create it
+
+In your project folder (same one as your notebook), do one of the following:
+
+**Option 1 — Using terminal/PowerShell**
+
+```bash
+echo gymnasium[classic_control,toy_text]==0.29.1 > requirements.txt
+echo matplotlib>=3.7.0 >> requirements.txt
+echo numpy>=1.23.0 >> requirements.txt
+echo pandas>=2.0.0 >> requirements.txt
+echo jupyter>=1.0.0 >> requirements.txt
+```
+
+**Option 2 — Using any text editor**
+
+* Open a new file in VS Code / Notepad.
+* Paste the above lines.
+* Save as `requirements.txt`.
+
+**Option 3 — Generate automatically (optional)**
+If you already installed everything in your virtual environment:
+
+```bash
+pip freeze > requirements.txt
+```
+
+*(But this will include every installed package — it’s better to keep it minimal.)*
+
+---
+
+##  **2️⃣ Create a `.gitignore` file**
+
+This tells Git which files/folders to ignore so you don’t accidentally upload large or generated files (like CSVs or notebooks checkpoints).
+
+###  Recommended `.gitignore` for this assignment:
+
+```gitignore
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Results and temporary files
+assignment2_results/
+summary_df.csv
+final_metrics.csv
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# PDF exports and backups
+*.pdf
+*.bak
+
+# VSCode / IDE folders
+.vscode/
+.idea/
+```
+
+###  How to create it
+
+In your project folder, create a new text file named:
+
+```
+.gitignore
+```
+
+and paste the content above.
+
+---
+
+##  Final Folder Structure
+
+Your final submission folder should look like this:
+
+```
+CSCN8020_Assignment2/
+│
+├── CSCN8020_Assignment2_solution.ipynb
+├── CSCN8020_Assignment2_solution.pdf
+├── assignment2_utils.py
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── assignment2_results/
+    ├── summary_df.csv
+    └── final_metrics.csv
